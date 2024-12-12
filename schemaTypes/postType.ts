@@ -1,35 +1,36 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
-export const postType = defineType({
-  name: 'personnage',
+export const personnageType = defineType({
+  name: 'personnages',
   title: 'Personnages',
   type: 'document',
+  groups: [
+    {
+      name: 'seo',
+      title: 'seo',
+    },
+  ],
   fields: [
     defineField({
-      name: 'title',
-      type: 'string',
-      validation: (rule) => rule.required(),
+      name: 'seo',
+      type: 'seo',
+      title: 'SEO',
+      group: 'seo',
     }),
     defineField({
-      name: 'slug',
-      type: 'slug',
-      options: {source: 'title'},
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'publishedAt',
-      type: 'datetime',
-      initialValue: () => new Date().toISOString(),
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'image',
-      type: 'image',
-    }),
-    defineField({
-      name: 'body',
-      type: 'array',
-      of: [{type: 'block'}],
-    }),
+        name: 'title',
+        title: 'Titre',
+        type: 'string',
+      }),
+      defineField({
+        name: 'description',
+        title: 'Description',
+        type: 'text',
+      }),
+      defineField({
+        name: 'image',
+        title: 'Image',
+        type: 'image',
+      })
   ],
 })
