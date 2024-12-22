@@ -77,5 +77,38 @@ export const homepage = defineType({
       }
     ]
 }),
+
+
+defineField({
+  type: 'object',
+  name: 'pricing',
+  fields: [
+    {
+      type: 'string', 
+      name: 'title'
+  },
+    {
+      type: 'string', 
+      name: 'text'},
+      
+    {
+      name: 'abonnements', 
+     type: 'array', 
+     title: 'Abonnements',  
+     of: [
+      defineArrayMember({
+          type: 'object',
+          name: 'abonnement',
+          fields: [
+            {type:'image', name: 'image'},
+            {type:'string', name: 'titre'},
+            {type:'string', name: 'text'},
+            {type:'string', name: 'prix'},
+                  ]
+                        })
+          ]
+    }
+  ]
+}),
    ]   //groupe de champ pour la partie partenaires
 });
