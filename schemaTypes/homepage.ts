@@ -103,12 +103,81 @@ defineField({
             {type:'image', name: 'image'},
             {type:'string', name: 'titre'},
             {type:'string', name: 'text'},
-            {type:'string', name: 'prix'},
+            {type:'number', name: 'prix'},
                   ]
                         })
           ]
     }
   ]
 }),
+
+
+defineField({
+  type: 'object',
+  name: 'temoignage',
+  fields: [
+    {
+      type: 'string', 
+      name: 'title'
+  },
+    {
+      type: 'string', 
+      name: 'text'},
+      
+    {
+      name: 'temoignages', 
+     type: 'array', 
+     title: 'Temoignages',  
+     of: [
+      defineArrayMember({
+          type: 'object',
+          name: 'temoignage',
+          fields: [
+            {type:'image', name: 'image'},
+            {type:'string', name: 'nom'},
+            {type:'string', name: 'text'},
+            {type:'number', name: 'note'},
+                  ]
+                        })
+          ]
+    }
+  ]
+}),
+
+defineField({
+  type: 'object',
+  name: 'partenaires',
+  fields: [
+    {
+      type: 'string', 
+      name: 'title'
+  },
+    {
+      type: 'string', 
+      name: 'text'},
+
+      {
+        type: 'image', 
+        name: 'image',
+      },
+      
+    {
+      name: 'partenaires', 
+     type: 'array', 
+     title: 'Partenaires',  
+     of: [
+      defineArrayMember({
+          type: 'object',
+          name: 'partenaire',
+          fields: [
+            {type:'image', name: 'image'},
+           
+                  ]
+                        })
+          ]
+    }
+  ]
+}),
+
    ]   //groupe de champ pour la partie partenaires
 });
